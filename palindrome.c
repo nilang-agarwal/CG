@@ -11,7 +11,7 @@ int main()
           reversedN = reversedN * 10 + remainder; n /= 10;  // reversed integer is stored in reversedN 
         }
               if (originalN == reversedN) // palindrome if orignalN and reversedN are equal
-              printf(""%d is a palindrome."", originalN); 
-              else printf(""%d is not a palindrome."", originalN); 
+              printf("%d is a palindrome.\n\n", originalN); 
+              else printf("%d is not a palindrome.", originalN); 
 return 0; 
 }
