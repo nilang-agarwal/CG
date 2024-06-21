@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //Comment
+=======
+
+>>>>>>> fe6d031e7cf16e3ff5f00bcde6f9ba90641a867f
 #include <stdio.h> 
 int main() 
 { 
@@ -15,4 +19,7 @@ int main()
               else printf("%d is not a palindrome.", originalN); 
 return 0; 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe6d031e7cf16e3ff5f00bcde6f9ba90641a867f
