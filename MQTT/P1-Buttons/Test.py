@@ -17,14 +17,13 @@ client.on_message = on_message
 
 def create_buttons(message):
     try:
-        data = json.loads(message)  # Parse the JSON message
+        data = json.loads(message) 
         things = data['Details']['Things']
         
-        # Clear existing buttons
         for widget in button_frame.winfo_children():
             widget.destroy()
         
-        # Create new buttons for each "Thing"
+       
         for thing in things:
             btn = tk.Button(button_frame, text=thing['Name'], command=lambda name=thing['Name']: on_button_click(name))
             btn.pack(pady=5, padx=10, fill=tk.X)
@@ -47,7 +46,6 @@ app = tk.Tk()
 app.title("MQTT Button Display")
 app.geometry("600x400")
 
-# Frame for buttons
 button_frame = tk.Frame(app)
 button_frame.pack(pady=10, fill=tk.BOTH, expand=True)
 
