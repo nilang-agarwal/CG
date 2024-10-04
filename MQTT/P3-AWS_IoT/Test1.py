@@ -4,19 +4,14 @@ import paho.mqtt.client as mqtt
 import json
 import ssl
 
-# Store existing MAC addresses and device data
 existing_mac_addresses = {}
 device_data = {}
 
-# AWS IoT parameters
-broker_address = "a3c7k5ajyxpwnh-ats.iot.ap-northeast-1.amazonaws.com"  # e.g., "xxxxxxxxxx.iot.us-east-1.amazonaws.com"
+broker_address = "a3c7k5ajyxpwnh-ats.iot.ap-northeast-1.amazonaws.com"  
 port = 8883
 topic = "India/Bihar/Patna"
 
-# Initialize MQTT client
 client = mqtt.Client()
-
-# Set up TLS for secure connection
 client.tls_set(r"C:\Certs\AmazonRootCA1.pem", 
                 certfile=r"C:\Certs\45ba4dc21f729655ce049e81d17f6946e3d58e6144629998669527c3f4d818c1-certificate.pem.crt", 
                 keyfile=r"C:\Certs\45ba4dc21f729655ce049e81d17f6946e3d58e6144629998669527c3f4d818c1-private.pem.key", 
