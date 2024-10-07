@@ -13,9 +13,9 @@ client_cert = r"C:\Users\nilagarw\Downloads\MyDoorLock2\1ec0841b1eedab8b126ec35b
 client_key = r"C:\Users\nilagarw\Downloads\MyDoorLock2\1ec0841b1eedab8b126ec35b08516b3618d20ce7d780defe7aa6f7247e544813-private.pem.key"
 
 def generate_message():
-    values = [random.randint(0, 100) for _ in range(11)] 
+    values = [random.randint(0, 100) for val in range(11)]  
     temperature_value = random.randint(20, 35) 
-    humidity_value = random.randint(40, 100) 
+    humidity_value = random.randint(40, 100)  
 
     message = {
         "Command": "GetDeviceDetails",
@@ -53,7 +53,7 @@ def generate_message():
                 {
                     "Type": "ahuThing",
                     "Name": "Humidity Control",
-                    "Value": humidity_value, 
+                    "Value": humidity_value,  
                     "Min": 35,
                     "Max": 90,
                     "sd": 100,
@@ -65,17 +65,16 @@ def generate_message():
             ]
         }
     }
-
+    print(f"Published Values:\nSensorbox:{values}\nTemperature: {temperature_value}\nHumidity:{humidity_value}\n")
     return message
-
 
 def publish_message(client):
     while True:
         message = generate_message()
         client.publish(topic, json.dumps(message))
-        print(f"Published message: {message}")
-        time.sleep(10)  
+        time.sleep(10)
 
+    
 client = mqtt.Client()
 client.tls_set(ca_certs=ca_cert, certfile=client_cert, keyfile=client_key, tls_version=ssl.PROTOCOL_TLSv1_2)
 
